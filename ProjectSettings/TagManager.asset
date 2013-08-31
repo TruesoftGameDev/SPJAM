@@ -6,6 +6,8 @@ TagManager:
   - DeathCollider
   - Perspectiva1
   - Perspectiva2
+  - OrbVermelho
+  - OrbPreto
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
