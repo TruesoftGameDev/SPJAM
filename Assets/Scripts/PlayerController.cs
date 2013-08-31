@@ -4,6 +4,9 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	
 	public float velocidade = 3.0f;
+	public bool canJump = true;
+	public bool jumping = false;
+	public bool doubleJump = false;
 	public float pulo = 8.0f;
 	public float gravidade = 20.0f;
 	public float velocidadeLateral = 0.5f;
@@ -49,6 +52,9 @@ public class PlayerController : MonoBehaviour {
 				
 				if(characterController.isGrounded)
 				{
+					canJump = true;
+					doubleJump = false;
+					jumping = false;
 					if(rasteira == true)
 					{
 						if(tmpRasteira >= 0)
@@ -62,17 +68,28 @@ public class PlayerController : MonoBehaviour {
 							transform.position = new Vector3(transform.position.x, 1,transform.position.z);
 						}
 					}
-					if(Input.GetKey(KeyCode.UpArrow))
-					{
-		                movimento.y = pulo;
-					}
+					
 				
 					if(Input.GetKey(KeyCode.DownArrow)&& !rasteira)
 					{
 						rasteira = true;
 						transform.localScale*=0.5f;
+						canJump = false;
 					}
 					
+				}
+				if(Input.GetKeyDown(KeyCode.UpArrow) && (canJump))
+				{
+	                movimento.y = pulo;
+					if(jumping)
+					{
+						doubleJump = true;
+						canJump = false;
+					}
+					else
+					{
+						jumping = true;
+					}	
 				}
 				break;
 			case 2:
@@ -124,6 +141,7 @@ public class PlayerController : MonoBehaviour {
 				break;
 			case "Perspectiva1":
 				trocaPerspectiva(1);
+				colisor.collider.enabled = false;
 				break;
 			case "Perspectiva2":
 				trocaPerspectiva(2);
