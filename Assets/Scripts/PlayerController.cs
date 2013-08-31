@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour {
 		movimento.y -= gravidade*Time.deltaTime;
 		characterController.Move(movimento);
 	}
-	void trocaPerspectiva(int codPerspectiva)
+	public void trocaPerspectiva(int codPerspectiva)
 	{
 		switch(codPerspectiva)
 		{
@@ -144,6 +144,12 @@ public class PlayerController : MonoBehaviour {
 				break;
 			case "Perspectiva2":
 				trocaPerspectiva(2);
+				colisor.collider.enabled = false;
+				break;
+			case "Checkpoint":
+				Checkpoint ck = colisor.gameObject.GetComponent<Checkpoint>();
+				Checkpoints controller = GameObject.FindGameObjectWithTag("CheckpointController").GetComponent<Checkpoints>();
+				controller.gravaCheckpoint(ck.id);
 				colisor.collider.enabled = false;
 				break;
 		}
