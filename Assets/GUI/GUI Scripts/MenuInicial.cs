@@ -67,6 +67,34 @@ public class MenuInicial : MonoBehaviour {
 			}
 			mudou = false;
 		}
+		if(Input.GetKeyDown(KeyCode.Return))
+		{
+			switch(itens)
+			{
+				case Itens.NovoJogo:
+					if(PlayerPrefs.HasKey("Checkpoint"))
+					{
+						
+					}
+					else
+					{
+						Application.LoadLevel("Prototipo");
+					}
+					break;
+				case Itens.Continuar:
+					if(PlayerPrefs.HasKey("Checkpoint"))
+					{
+						Application.LoadLevel("Prototipo");
+					}
+					break;
+				case Itens.Creditos:
+					
+					break;
+				case Itens.Sair:
+					Application.Quit();
+					break;			
+			}
+		}
 	}
 }
 

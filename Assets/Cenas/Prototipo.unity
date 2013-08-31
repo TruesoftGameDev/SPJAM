@@ -20,7 +20,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5d123710e92d97846a2fa983ec1bf374, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_HaloTexture: {fileID: 0}
@@ -724,7 +724,6 @@ Transform:
   m_LocalPosition: {x: 0, y: .987460136, z: -88.5389633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1727922902}
   - {fileID: 1225033452}
   m_Father: {fileID: 0}
 --- !u!1 &1078184847
@@ -969,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbs: 0
-  vidas: 10
+  vidas: 0
   continues: 0
 --- !u!1 &1230014718
 GameObject:
@@ -1264,7 +1263,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 02e31986e494f5740b9a6188bbf46f7e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1442,6 +1441,7 @@ GameObject:
   - 92: {fileID: 1558832160}
   - 124: {fileID: 1558832159}
   - 81: {fileID: 1558832158}
+  - 45: {fileID: 1558832163}
   m_Layer: 0
   m_Name: Camera 1
   m_TagString: MainCamera
@@ -1513,6 +1513,14 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1225033452}
+--- !u!45 &1558832163
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558832157}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 5d123710e92d97846a2fa983ec1bf374, type: 2}
 --- !u!1 &1595377274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1551,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 02e31986e494f5740b9a6188bbf46f7e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2717,10 +2725,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1727922901}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 18.3014221, z: 35.9086838}
+  m_LocalPosition: {x: 0, y: 19.2888832, z: -56.2379532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 884227490}
+  m_Father: {fileID: 0}
 --- !u!114 &1727922903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,6 +2741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fb651c5c3fa9347a478de5f90e3a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ajustey: 0
+  ajustez: 0
   personagem: {fileID: 1225033448}
 --- !u!124 &1727922904
 Behaviour:
@@ -3001,7 +3011,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 09f858ca43f925f4dafe9e5ba2e166fc, type: 2}
+  - {fileID: 2100000, guid: 02e31986e494f5740b9a6188bbf46f7e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
