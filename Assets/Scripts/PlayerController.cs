@@ -7,13 +7,32 @@ public class PlayerController : MonoBehaviour {
 	public float pulo = 8.0f;
 	public float gravidade = 20.0f;
 	private Vector3 movimento;
+	public int perspectiva = 1;
+	public GameObject cameraSideRun;
+	public GameObject cameraTopRun;
 	
 	void Start () {
-	
+		if(perspectiva == 1)
+		{
+			toSideCamera();
+		}
+		else if(perspectiva == 2)
+		{
+			toTopCamera();
+		}
+		else
+		{
+			Debug.Log ("Erro camera");	
+		}
+		
+		
 	}
 	
 	
 	void Update () {
+		
+		
+		
 		//Garante que sempre fique na posiçao 0 do eixo X;
 		transform.position = new Vector3(0,transform.position.y, transform.position.z);	
 		
@@ -33,7 +52,10 @@ public class PlayerController : MonoBehaviour {
 		movimento.y -= gravidade*Time.deltaTime;
 		characterController.Move(movimento);
 	}
-	//Teste de colisoes de morte
+	
+	
+	
+	//Teste de colisoes de morte, troca de camera
 	void OnControllerColliderHit(ControllerColliderHit colisor)
 	{
 		
@@ -42,5 +64,13 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("Entrou");
 			SendMessage("Dead");
 		}
+	}
+	private void toSideCamera(){
+		cameraSideRun.camera.enabled = true;
+		cameraTopRun.camera.enabled = false;
+	}
+	private void toTopCamera(){
+		cameraSideRun.camera.enabled = false;
+		cameraTopRun.camera.enabled = true;
 	}
 }
