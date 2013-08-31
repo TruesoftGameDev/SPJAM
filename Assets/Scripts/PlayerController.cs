@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour {
 	public float pulo = 8.0f;
 	public float gravidade = 20.0f;
 	public float velocidadeLateral = 0.5f;
+	public bool rasteira = false;
+	public float tempoRasteira = 1.0f;
+	public  float tmpRasteira;
+	
 	private Vector3 movimento;
 	public int perspectiva = 1;
 	public GameObject cameraSideRun;
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 				Debug.Log ("Erro cameras!");
 				break;
 		}
+		tmpRasteira = tempoRasteira;
 		
 	}
 	
@@ -44,11 +49,30 @@ public class PlayerController : MonoBehaviour {
 				
 				if(characterController.isGrounded)
 				{
-					
+					if(rasteira == true)
+					{
+						if(tmpRasteira >= 0)
+						{
+							tmpRasteira -= Time.deltaTime;
+						}
+						else
+						{
+							rasteira = false;
+							transform.localScale = new Vector3(1,1,1);
+							transform.position = new Vector3(transform.position.x, 1,transform.position.z);
+						}
+					}
 					if(Input.GetKey(KeyCode.UpArrow))
 					{
 		                movimento.y = pulo;
 					}
+				
+					if(Input.GetKey(KeyCode.DownArrow)&& !rasteira)
+					{
+						rasteira = true;
+						transform.localScale*=0.5f;
+					}
+					
 				}
 				break;
 			case 2:
