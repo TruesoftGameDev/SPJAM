@@ -788,6 +788,7 @@ MonoBehaviour:
   - {fileID: 704645688}
   - {fileID: 483139184}
   perspectivas: 010000000200000001000000
+  atual: 0
 --- !u!1 &1225033448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2949,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 9b5cbfda0a9dfcf45929e1184c0bae97, type: 2}
+  - {fileID: 2100000, guid: 09f858ca43f925f4dafe9e5ba2e166fc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
