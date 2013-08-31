@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbs: 0
-  vidas: 0
+  vidas: 10
   continues: 0
 --- !u!1 &1230014718
 GameObject:

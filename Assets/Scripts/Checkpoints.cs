@@ -37,5 +37,6 @@ public class Checkpoints : MonoBehaviour {
 		PlayerPrefs.SetInt("Orbs", controller.orbs);
 		PlayerPrefs.SetInt("Vidas",controller.vidas);
 		PlayerPrefs.SetInt("Continues", controller.continues);
+		Debug.Log ("Gravou o checkpoint " + check);
 	}
 }
