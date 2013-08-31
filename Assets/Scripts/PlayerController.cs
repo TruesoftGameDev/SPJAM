@@ -33,4 +33,14 @@ public class PlayerController : MonoBehaviour {
 		movimento.y -= gravidade*Time.deltaTime;
 		characterController.Move(movimento);
 	}
+	//Teste de colisoes de morte
+	void OnControllerColliderHit(ControllerColliderHit colisor)
+	{
+		
+		if(colisor.collider.gameObject.tag == "DeathCollider")
+		{
+			Debug.Log ("Entrou");
+			SendMessage("Dead");
+		}
+	}
 }
