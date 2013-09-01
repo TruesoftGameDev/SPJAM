@@ -66,7 +66,7 @@ public class AttributesController : MonoBehaviour {
 	}
 	
 	void Dead()
-	{	
+	{
 		Application.LoadLevel(nivelAtual);
 	}
 }

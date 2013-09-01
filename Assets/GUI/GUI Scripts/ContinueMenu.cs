@@ -45,8 +45,7 @@ public class ContinueMenu : MonoBehaviour {
 			switch(options)
 		{
 			case Options.Sim:
-				PlayerPrefs.DeleteAll();
-				Application.LoadLevel("Tela01/inicial");
+				Application.LoadLevel("Inicio");
 				break;
 			case Options.Nao:
 				Application.LoadLevel("Menu inicial");
