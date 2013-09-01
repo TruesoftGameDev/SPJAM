@@ -131,10 +131,11 @@ public class PlayerController : MonoBehaviour {
 				break;
 		}
 		movimento.y -= gravidade*Time.deltaTime;
-		characterController.Move(movimento);
+		if(!pause)
+			characterController.Move(movimento);
 		
 		//TODO:Pause
-		/*
+		
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
 			if(!pause)
@@ -146,10 +147,10 @@ public class PlayerController : MonoBehaviour {
 			else
 			{
 				Time.timeScale = 1.0f;
-				Debug.Log ();
+				Debug.Log (Time.timeScale);
 				pause = false;
 			}
-		}*/
+		}
 	}
 	public void trocaPerspectiva(int codPerspectiva)
 	{
