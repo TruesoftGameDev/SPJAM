@@ -7,6 +7,10 @@ public class AttributesController : MonoBehaviour {
 	public int vidas;
 	public int continues;
 	
+	private bool deadCollide = false;
+	private bool tocou = false;
+	
+	public float tempoDeMorte = 1.0f;
 	
 	void Update()
 	{
@@ -14,6 +18,20 @@ public class AttributesController : MonoBehaviour {
 		{
 			orbs-=100;
 			vidas++;
+		}
+		
+		if(deadCollide )
+		{
+		
+			//animation.Play("Happy");
+			if(tempoDeMorte>0)
+			{
+				tempoDeMorte -= Time.deltaTime;	
+			}
+			else
+			{
+				Dead();	
+			}
 		}
 	}
 	void OnControllerColliderHit(ControllerColliderHit ch)
@@ -32,9 +50,16 @@ public class AttributesController : MonoBehaviour {
 			return;
 		}
 	}
+	void DeadCollider()
+	{
+		deadCollide = true;
+		Destroy(gameObject.GetComponent<PlayerController>());
+		animation["Happy"].speed = 6.0f;
+		animation.Play("Happy");
+	}
 	
 	void Dead()
-	{
+	{	
 		Application.LoadLevel("Prototipo");
 	}
 }

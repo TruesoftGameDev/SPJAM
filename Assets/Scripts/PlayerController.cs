@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour {
 	public GameObject cameraTopRun;
 	
 	void Start () {
+		
+		animation["Run"].speed = 3.0f;
+		animation["Sliding"].speed = 3.0f;
+		
 		switch(perspectiva){
 			case 1:
 				toSideCamera();
@@ -57,6 +61,10 @@ public class PlayerController : MonoBehaviour {
 					canJump = true;
 					doubleJump = false;
 					jumping = false;
+				
+					
+					;
+				
 					if(rasteira == true)
 					{
 						if(tmpRasteira >= 0)
@@ -66,17 +74,24 @@ public class PlayerController : MonoBehaviour {
 						else
 						{
 							rasteira = false;
-							transform.localScale = new Vector3(1,1,1);
-							transform.position = new Vector3(transform.position.x, 1,transform.position.z);
+							transform.position = new Vector3(transform.position.x, 2.5f,transform.position.z);
+							characterController.center = new Vector3(characterController.center.x, 0.08f, characterController.center.z);
+							animation.CrossFade("Run",1.5f);
+							characterController.height *=15;
+							
 						}
 					}
+					else
+						animation.Play("Run");
 					
 				
 					if(Input.GetKey(KeyCode.DownArrow)&& !rasteira)
 					{
 						rasteira = true;
-						transform.localScale*=0.5f;
+						characterController.height /=15;
+						characterController.center = new Vector3(characterController.center.x, 0.70f, characterController.center.z);
 						canJump = false;
+						animation.Play("Sliding",PlayMode.StopAll);
 					}
 					
 				}
@@ -87,14 +102,18 @@ public class PlayerController : MonoBehaviour {
 					{
 						doubleJump = true;
 						canJump = false;
+						animation.Play("DoubleJump",PlayMode.StopAll);
 					}
 					else
 					{
 						jumping = true;
+						animation.Play("Jump",AnimationPlayMode.Mix);
 					}	
 				}
 				break;
 			case 2:
+				if(!animation.isPlaying)
+					animation.Play("Run");
 				
 				if(Input.GetKey(KeyCode.LeftArrow))
 				{
@@ -156,7 +175,8 @@ public class PlayerController : MonoBehaviour {
 		switch(colisor.collider.gameObject.tag)
 		{
 			case "DeathCollider":
-				SendMessage("Dead");
+				SendMessage("DeadCollider");
+				
 				break;
 			case "Perspectiva1":
 				trocaPerspectiva(1);
