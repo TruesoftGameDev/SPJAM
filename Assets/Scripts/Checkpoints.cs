@@ -16,11 +16,11 @@ public class Checkpoints : MonoBehaviour {
 		
 		if(PlayerPrefs.HasKey("Checkpoint") && controller.vidas>0)
 		{
-			controller.vidas--;
 			atual = PlayerPrefs.GetInt("Checkpoint");
 			controller.orbs = PlayerPrefs.GetInt("Orbs");
 			controller.vidas = PlayerPrefs.GetInt("Vidas");
 			controller.continues = PlayerPrefs.GetInt("Continues");
+			controller.vidas--;
 			player.transform.position = checkpoints[atual].transform.position;
 			
 		}	
@@ -34,7 +34,6 @@ public class Checkpoints : MonoBehaviour {
 	public void gravaCheckpoint(int check)
 	{
 		PlayerPrefs.SetInt("Checkpoint", check);
-		PlayerPrefs.SetInt("Orbs", controller.orbs);
 		PlayerPrefs.SetInt("Vidas",controller.vidas);
 		PlayerPrefs.SetInt("Continues", controller.continues);
 		Debug.Log ("Gravou o checkpoint " + check);

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	
+	
 	public float velocidade = 3.0f;
 	public bool canJump = true;
 	public bool jumping = false;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public bool rasteira = false;
 	public float tempoRasteira = 1.0f;
 	public  float tmpRasteira;
+	public bool pause = false;
 	
 	private Vector3 movimento;
 	public int perspectiva = 1;
@@ -111,6 +113,24 @@ public class PlayerController : MonoBehaviour {
 		}
 		movimento.y -= gravidade*Time.deltaTime;
 		characterController.Move(movimento);
+		
+		//TODO:Pause
+		/*
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			if(!pause)
+			{
+				Time.timeScale = 0;
+				Debug.Log (Time.timeScale);
+				pause = true;
+			}
+			else
+			{
+				Time.timeScale = 1.0f;
+				Debug.Log ();
+				pause = false;
+			}
+		}*/
 	}
 	public void trocaPerspectiva(int codPerspectiva)
 	{
