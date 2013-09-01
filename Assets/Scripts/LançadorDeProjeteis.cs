@@ -18,7 +18,7 @@ public class LançadorDeProjeteis : MonoBehaviour {
 		{
 			//Atira projetil
 			Rigidbody disparado = Instantiate(projetil, transform.position, Quaternion.identity) as Rigidbody;
-			disparado.AddForce(Vector3.forward * 40);
+			//disparado.AddForce(Vector3.forward * 10);
 			
 			intervaloAtual = intervaloDisparos;	
 		}
