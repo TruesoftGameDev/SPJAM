@@ -89,7 +89,7 @@ public class MenuInicial : MonoBehaviour {
 					}
 					break;
 				case Itens.Creditos:
-					
+					Application.LoadLevel("Creditos");
 					break;
 				case Itens.Sair:
 					Application.Quit();

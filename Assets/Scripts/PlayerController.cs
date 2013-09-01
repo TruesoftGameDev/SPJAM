@@ -134,23 +134,6 @@ public class PlayerController : MonoBehaviour {
 		if(!pause)
 			characterController.Move(movimento);
 		
-		//TODO:Pause
-		
-		if(Input.GetKeyDown(KeyCode.Escape))
-		{
-			if(!pause)
-			{
-				Time.timeScale = 0;
-				Debug.Log (Time.timeScale);
-				pause = true;
-			}
-			else
-			{
-				Time.timeScale = 1.0f;
-				Debug.Log (Time.timeScale);
-				pause = false;
-			}
-		}
 	}
 	public void trocaPerspectiva(int codPerspectiva)
 	{
