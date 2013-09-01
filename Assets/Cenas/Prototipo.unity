@@ -2742,7 +2742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ajustey: 0
-  ajustez: 0
+  ajustez: 8
   personagem: {fileID: 1225033448}
 --- !u!124 &1727922904
 Behaviour:

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-enum Itens
+[System.Serializable]
+public enum Itens
 {
 	NovoJogo,
 	Continuar,
@@ -18,9 +19,9 @@ public class MenuInicial : MonoBehaviour {
 	public Texture2D[] padrao;
 	public Texture2D[] selecionados;
 	
-	private bool mudou = false;
+	private bool mudou = true;
 
-	Itens itens = Itens.NovoJogo;
+	public Itens itens = Itens.NovoJogo;
 	
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.UpArrow))
@@ -74,7 +75,7 @@ public class MenuInicial : MonoBehaviour {
 				case Itens.NovoJogo:
 					if(PlayerPrefs.HasKey("Checkpoint"))
 					{
-						
+						Application.LoadLevel("Apagar save");
 					}
 					else
 					{

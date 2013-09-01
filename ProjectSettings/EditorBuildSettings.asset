@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Cenas/Menu inicial.unity
   - enabled: 1
     path: Assets/Cenas/Prototipo.unity
+  - enabled: 1
+    path: Assets/Cenas/Apagar save.unity
