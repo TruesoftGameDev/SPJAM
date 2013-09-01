@@ -259,6 +259,7 @@ MonoBehaviour:
   rasteira: 0
   tempoRasteira: 1
   tmpRasteira: 0
+  pause: 0
   perspectiva: 1
   cameraSideRun: {fileID: 100004}
   cameraTopRun: {fileID: 100006}
@@ -273,6 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0faa2140e356c145916ecdbb95880b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbs: 0
+  vidas: 0
+  continues: 0
+  tempoDeMorte: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fb651c5c3fa9347a478de5f90e3a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ajustey: 0
+  ajustez: 0
   personagem: {fileID: 100002}
 --- !u!124 &12400000
 Behaviour:

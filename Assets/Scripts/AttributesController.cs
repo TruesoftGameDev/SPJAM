@@ -7,11 +7,18 @@ public class AttributesController : MonoBehaviour {
 	public int vidas;
 	public int continues;
 	
+	public string nivelAtual;
+	
 	private bool deadCollide = false;
 	private bool tocou = false;
 	
 	public float tempoDeMorte = 1.0f;
 	
+	
+	void Start()
+	{
+		nivelAtual = Application.loadedLevelName;	
+	}
 	void Update()
 	{
 		if(orbs >= 100)
@@ -60,6 +67,6 @@ public class AttributesController : MonoBehaviour {
 	
 	void Dead()
 	{	
-		Application.LoadLevel("Prototipo");
+		Application.LoadLevel(nivelAtual);
 	}
 }
