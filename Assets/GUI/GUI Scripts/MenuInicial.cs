@@ -79,7 +79,7 @@ public class MenuInicial : MonoBehaviour {
 					}
 					else
 					{
-						Application.LoadLevel("Prototipo");
+						Application.LoadLevel("Inicio");
 					}
 					break;
 				case Itens.Continuar:
