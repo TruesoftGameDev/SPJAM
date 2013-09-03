@@ -794,10 +794,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0faa2140e356c145916ecdbb95880b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathSound: {fileID: 8200000, guid: 136927e3dd00fb84aa0745c13c09e70b, type: 2}
   orbs: 0
   vidas: 0
   continues: 0
-  tempoDeMorte: 1
+  nivelAtual: 
+  tempoDeMorte: 1.70000005
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

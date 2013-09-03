@@ -12,6 +12,8 @@ public enum Itens
 
 public class MenuInicial : MonoBehaviour {
 	
+	
+	
 	public GUITexture novoJogo;
 	public GUITexture continuar;
 	public GUITexture creditos;

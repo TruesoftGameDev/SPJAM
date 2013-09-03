@@ -3,6 +3,10 @@ using System.Collections;
 
 public class AttributesController : MonoBehaviour {
 	
+	public AudioSource DeathSound;
+	private bool tocouDeathSound = false;
+	
+	
 	public int orbs;
 	public int vidas;
 	public int continues;
@@ -29,7 +33,12 @@ public class AttributesController : MonoBehaviour {
 		
 		if(deadCollide )
 		{
-		
+			if(!tocouDeathSound)
+			{
+				GameObject.FindGameObjectWithTag("GameplaySound").GetComponent<AudioSource>().Stop();
+				tocouDeathSound = true;
+				Instantiate(DeathSound);
+			}
 			//animation.Play("Happy");
 			if(tempoDeMorte>0)
 			{
