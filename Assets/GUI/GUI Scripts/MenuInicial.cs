@@ -12,63 +12,90 @@ public enum Itens
 
 public class MenuInicial : MonoBehaviour {
 	
+	public bool ativado = true;
+	public bool credito = false;
 	
-	
-	public GUITexture novoJogo;
-	public GUITexture continuar;
-	public GUITexture creditos;
-	public GUITexture sair;
+	public GameObject newGame;
+	public GameObject cont;
+	public GameObject credits;
+	public GameObject quit;
 	public Texture2D[] padrao;
 	public Texture2D[] selecionados;
-	
 	private bool mudou = true;
 
 	public Itens itens = Itens.NovoJogo;
 	
+	private Material novoJogo;
+	private Material continuar;
+	private Material creditos;
+	private Material sair;
+	
+	public string nomeDaCena = "Inicio";
+	
+	void Start()
+	{
+		novoJogo = newGame.GetComponent<Renderer>().material;
+		continuar = cont.GetComponent<Renderer>().material;
+		creditos = credits.GetComponent<Renderer>().material;
+		sair = quit.GetComponent<Renderer>().material;
+	}
+	
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.UpArrow))
+		if(ativado)	
 		{
-			itens--;
-			mudou = true;
-		}
-		if(Input.GetKeyDown(KeyCode.DownArrow))
-		{
-			itens++;
-			mudou = true;
-		}
-		if(mudou){
-			if((int)itens<0)
-				itens = Itens.Sair;
-			if((int)itens>3)
-				itens= Itens.NovoJogo;
-			switch(itens)
+			if(Input.GetKeyDown(KeyCode.UpArrow))
 			{
-				case Itens.NovoJogo:
-					novoJogo.texture = selecionados[0];
-					continuar.texture = padrao[1];
-					creditos.texture = padrao[2];
-					sair.texture = padrao[3];
-					break;
-				case Itens.Continuar:
-					novoJogo.texture = padrao[0];
-					continuar.texture = selecionados[1];
-					creditos.texture = padrao[2];
-					sair.texture = padrao[3];
-					break;
-				case Itens.Creditos:
-					novoJogo.texture = padrao[0];
-					continuar.texture = padrao[1];
-					creditos.texture = selecionados[2];
-					sair.texture = padrao[3];
-					break;
-				case Itens.Sair:
-					novoJogo.texture = padrao[0];
-					continuar.texture = padrao[1];
-					creditos.texture = padrao[2];
-					sair.texture = selecionados[3];
-					break;			
+				itens--;
+				mudou = true;
 			}
-			mudou = false;
+			if(Input.GetKeyDown(KeyCode.DownArrow))
+			{
+				itens++;
+				mudou = true;
+			}
+			if(mudou){
+				if((int)itens<0)
+					itens = Itens.Sair;
+				if((int)itens>3)
+					itens= Itens.NovoJogo;
+				switch(itens)
+				{
+					case Itens.NovoJogo:
+						novoJogo.mainTexture = selecionados[0];
+						continuar.mainTexture = padrao[1];
+						creditos.mainTexture = padrao[2];
+						sair.mainTexture = padrao[3];
+						break;
+					case Itens.Continuar:
+						novoJogo.mainTexture = padrao[0];
+						continuar.mainTexture = selecionados[1];
+						creditos.mainTexture = padrao[2];
+						sair.mainTexture = padrao[3];
+						break;
+					case Itens.Creditos:
+						novoJogo.mainTexture = padrao[0];
+						continuar.mainTexture = padrao[1];
+						creditos.mainTexture = selecionados[2];
+						sair.mainTexture = padrao[3];
+						break;
+					case Itens.Sair:
+						novoJogo.mainTexture = padrao[0];
+						continuar.mainTexture = padrao[1];
+						creditos.mainTexture = padrao[2];
+						sair.mainTexture = selecionados[3];
+						break;			
+				}
+				mudou = false;
+			}
+			if(credito)
+			{
+				if(Input.GetKeyDown(KeyCode.Escape))
+				{
+					ativado = true;
+					GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
+					credito = false;
+				}
+			}
 		}
 		if(Input.GetKeyDown(KeyCode.Return))
 		{
@@ -77,21 +104,26 @@ public class MenuInicial : MonoBehaviour {
 				case Itens.NovoJogo:
 					if(PlayerPrefs.HasKey("Checkpoint"))
 					{
-						Application.LoadLevel("Apagar save");
+						Debug.Log ("camera");
+						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toNovoJogo();
+						this.ativado = false;
+						GameObject.FindGameObjectWithTag("NovoJogo").GetComponent<NewGameMenu>().ativado = true;
 					}
 					else
 					{
-						Application.LoadLevel("Inicio");
+						Application.LoadLevel(nomeDaCena);
 					}
 					break;
 				case Itens.Continuar:
-					if(PlayerPrefs.HasKey("Checkpoint"))
+					if(PlayerPrefs.HasKey(nomeDaCena));
 					{
-						Application.LoadLevel("Prototipo");
+						Application.LoadLevel(2);
 					}
 					break;
 				case Itens.Creditos:
-					Application.LoadLevel("Creditos");
+					GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toCreditos();
+					this.ativado = false;
+					this.credito = true;
 					break;
 				case Itens.Sair:
 					Application.Quit();

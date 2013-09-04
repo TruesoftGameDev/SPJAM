@@ -25,7 +25,7 @@ public class Checkpoints : MonoBehaviour {
 			
 		}	
 		else
-		atual = 0;
+			atual = 0;
 		playerController.trocaPerspectiva(perspectivas[atual]);
 		
 	}
