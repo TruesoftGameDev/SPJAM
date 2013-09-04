@@ -30,6 +30,9 @@ public class MenuInicial : MonoBehaviour {
 	private Material creditos;
 	private Material sair;
 	
+	private float delay = 1.0f;
+	private bool ativando = false;
+	
 	public string nomeDaCena = "Inicio";
 	
 	void Start()
@@ -86,49 +89,72 @@ public class MenuInicial : MonoBehaviour {
 						break;			
 				}
 				mudou = false;
-			}
-			if(credito)
+			}	
+		
+		
+			if(Input.GetKeyDown(KeyCode.Return))
 			{
-				if(Input.GetKeyDown(KeyCode.Escape))
+				switch(itens)
 				{
-					ativado = true;
-					GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
-					credito = false;
+					case Itens.NovoJogo:
+						if(PlayerPrefs.HasKey("Checkpoint"))
+						{
+							Debug.Log ("camera");
+							GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toNovoJogo();
+							this.ativado = false;
+							GameObject.FindGameObjectWithTag("NovoJogo").GetComponent<NewGameMenu>().ativado = true;
+						}
+						else
+						{
+							Application.LoadLevel(nomeDaCena);
+						}
+						break;
+					case Itens.Continuar:
+						if(PlayerPrefs.HasKey(nomeDaCena));
+						{
+							Application.LoadLevel(2);
+						}
+						break;
+					case Itens.Creditos:
+						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toCreditos();
+						this.ativado = false;
+						this.credito = true;
+						break;
+					case Itens.Sair:
+						Application.Quit();
+						break;			
 				}
 			}
 		}
-		if(Input.GetKeyDown(KeyCode.Return))
+		if(credito)
 		{
-			switch(itens)
+			if(Input.GetKeyDown(KeyCode.Escape))
 			{
-				case Itens.NovoJogo:
-					if(PlayerPrefs.HasKey("Checkpoint"))
-					{
-						Debug.Log ("camera");
-						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toNovoJogo();
-						this.ativado = false;
-						GameObject.FindGameObjectWithTag("NovoJogo").GetComponent<NewGameMenu>().ativado = true;
-					}
-					else
-					{
-						Application.LoadLevel(nomeDaCena);
-					}
-					break;
-				case Itens.Continuar:
-					if(PlayerPrefs.HasKey(nomeDaCena));
-					{
-						Application.LoadLevel(2);
-					}
-					break;
-				case Itens.Creditos:
-					GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toCreditos();
-					this.ativado = false;
-					this.credito = true;
-					break;
-				case Itens.Sair:
-					Application.Quit();
-					break;			
+				ativa();
+				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
+				credito = false;
 			}
+		}
+		if(ativando)
+		{
+			if(delay > 0)
+			{
+				delay -= Time.deltaTime;	
+			}
+			else
+			{
+				ativado = true;
+				ativando = false;
+				delay = 1;
+			}
+		}
+	}
+	
+	public void ativa()
+	{
+		if(!ativado)
+		{
+			ativando = true;	
 		}
 	}
 }

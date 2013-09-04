@@ -67,7 +67,7 @@ public class NewGameMenu : MonoBehaviour {
 					case Options.Nao:
 						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
 						this.ativado = false;
-						GameObject.FindGameObjectWithTag("MenuInicial").GetComponent<MenuInicial>().ativado = true;
+						GameObject.FindGameObjectWithTag("MenuInicial").GetComponent<MenuInicial>().ativa();
 						break;
 				}
 			}
