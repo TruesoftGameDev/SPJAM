@@ -29,7 +29,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 65: {fileID: 6500002}
   m_Layer: 0
-  m_Name: Tronco
+  m_Name: Tronco Caido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
