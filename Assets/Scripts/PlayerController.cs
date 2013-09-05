@@ -150,15 +150,15 @@ public class PlayerController : MonoBehaviour {
 		if(!animation.isPlaying)
 				animation.Play("Run");
 		
-		if(Input.GetKey(KeyCode.LeftArrow))
+		Debug.Log(r.transform.position.x);
+		
+		if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -11)
 		{
-			if(r.isVisible || transform.position.x<0)
-				movimento += Vector3.left*velocidadeLateral;
+			movimento += Vector3.left*velocidadeLateral;
 		}
-		if(Input.GetKey(KeyCode.RightArrow))
+		if(Input.GetKey(KeyCode.RightArrow) && transform.position.x < 11)
 		{
-			if(r.isVisible || transform.position.x>0)
-				movimento += Vector3.right*velocidadeLateral;
+			movimento += Vector3.right*velocidadeLateral;
 		}
 	}
 	
@@ -189,11 +189,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	private void toSideCamera(){
-		cameraSideRun.camera.enabled = true;
-		cameraTopRun.camera.enabled = false;
+		cameraSideRun.SetActive(true);
+		cameraTopRun.SetActive(false);
 	}
 	private void toTopCamera(){
-		cameraSideRun.camera.enabled = false;
-		cameraTopRun.camera.enabled = true;
+		cameraSideRun.SetActive(false);
+		cameraTopRun.SetActive(true);
 	}
 }

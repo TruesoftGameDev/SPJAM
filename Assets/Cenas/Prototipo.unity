@@ -10289,6 +10289,7 @@ GameObject:
   - 92: {fileID: 1727922905}
   - 124: {fileID: 1727922904}
   - 114: {fileID: 1727922903}
+  - 81: {fileID: 1727922907}
   m_Layer: 0
   m_Name: Camera 2
   m_TagString: MainCamera
@@ -10367,6 +10368,13 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
+--- !u!81 &1727922907
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1727922901}
+  m_Enabled: 1
 --- !u!1 &1741263095
 GameObject:
   m_ObjectHideFlags: 0
