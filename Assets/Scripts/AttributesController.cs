@@ -6,6 +6,8 @@ public class AttributesController : MonoBehaviour {
 	public AudioSource DeathSound;
 	private bool tocouDeathSound = false;
 	
+	public AudioSource OrbSound;
+	
 	
 	public int orbs;
 	public int vidas;
@@ -57,12 +59,14 @@ public class AttributesController : MonoBehaviour {
 		{
 			orbs += 5;
 			Destroy(ch.gameObject);
+			Instantiate(OrbSound);
 			return;
 		}
 		if(ch.gameObject.tag == "OrbPreto")
 		{
 			orbs += 10;
 			Destroy(ch.gameObject);
+			Instantiate(OrbSound);
 			return;
 		}
 	}

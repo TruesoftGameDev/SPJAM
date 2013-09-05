@@ -795,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathSound: {fileID: 8200000, guid: 136927e3dd00fb84aa0745c13c09e70b, type: 2}
+  OrbSound: {fileID: 8200000, guid: e63be9fa0f479d24284efc2011013f66, type: 2}
   orbs: 0
   vidas: 4
   continues: 0

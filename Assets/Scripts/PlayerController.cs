@@ -94,10 +94,10 @@ public class PlayerController : MonoBehaviour {
 			canJump = true;
 			doubleJump = false;
 			jumping = false;
-		
 			
-			;
-		
+			animation.Play("Run");
+			
+			/*
 			if(rasteira == true)
 			{
 				if(tmpRasteira >= 0)
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour {
 			else
 				animation.Play("Run");
 			
-		
+			
 			if(Input.GetKey(KeyCode.DownArrow)&& !rasteira)
 			{
 				rasteira = true;
@@ -126,7 +126,11 @@ public class PlayerController : MonoBehaviour {
 				canJump = false;
 				animation.Play("Sliding",PlayMode.StopAll);
 			}
-			
+			*/
+		}
+		else if(!jumping)
+		{
+			animation.Play("DoubleJump");
 		}
 		if(Input.GetKeyDown(KeyCode.UpArrow) && (canJump))
 		{
