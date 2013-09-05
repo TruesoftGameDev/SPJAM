@@ -5,13 +5,20 @@ using System.Collections;
 
 public class ContinueMenu : MonoBehaviour {
 	
-	public GUITexture sim;
-	public GUITexture nao;
+	public GameObject yes;
+	public GameObject no;
 	public Texture2D[] padrao;
 	public Texture2D[] selecionado;
 	
 	public Options options = Options.Sim;
 	
+	private Material sim;
+	private Material nao;
+	void Start()
+	{
+		sim = yes.renderer.material;
+		nao = no.renderer.material;
+	}
 	
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.RightArrow))
@@ -31,12 +38,12 @@ public class ContinueMenu : MonoBehaviour {
 		switch(options)
 		{
 			case Options.Sim:
-				sim.texture = selecionado[0];
-				nao.texture = padrao[1];
+				sim.mainTexture = selecionado[0];
+				nao.mainTexture = padrao[1];
 				break;
 			case Options.Nao:
-				nao.texture = selecionado[1];
-				sim.texture = padrao[0];
+				nao.mainTexture = selecionado[1];
+				sim.mainTexture = padrao[0];
 				break;
 		}
 		

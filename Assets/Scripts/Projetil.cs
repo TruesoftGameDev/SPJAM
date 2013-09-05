@@ -5,17 +5,18 @@ public class Projetil : MonoBehaviour {
 
 	//public ParticleSystem particula;
 	public float tempoDeVida;
+	private float tempoVivo;
 	void Start () {
 	
 	}
 	
 	
 	void Update () {
-		if(tempoDeVida<0)
+		if(tempoVivo>tempoDeVida)
 			DestroyProj();
-		tempoDeVida -= Time.deltaTime;		
+		tempoVivo +=Time.deltaTime;		
 	}
-	void OnColliderEnter(Collider col)
+	void OnCollisionEnter(Collision collision)
 	{
 		DestroyProj();	
 	}
@@ -23,6 +24,7 @@ public class Projetil : MonoBehaviour {
 	void DestroyProj()
 	{
 		//Instantiate(particula, transform.position,Quaternion.identity);
-		Destroy(gameObject);
+		if(tempoVivo > 1)
+			Destroy(gameObject);
 	}
 }

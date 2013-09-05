@@ -98,9 +98,11 @@ public class PauseMenu : MonoBehaviour {
 						menu.enabled = false;
 						sair.enabled = false;
 						pauseTop.enabled = false;
+						gameObject.GetComponent<AttributesController>().vidas++;
 						Application.LoadLevel("Menu inicial");
 						break;
 					case PauseOptions.sair:
+						gameObject.GetComponent<AttributesController>().vidas++;
 						Application.Quit();
 						break;
 						

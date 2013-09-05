@@ -24,8 +24,10 @@ public class Checkpoints : MonoBehaviour {
 			player.transform.position = checkpoints[atual].transform.position;
 			
 		}	
-		else
-			atual = 0;
+		else if(controller.vidas <=0)
+		{
+			Application.LoadLevel("Gameover");
+		}
 		playerController.trocaPerspectiva(perspectivas[atual]);
 		
 	}

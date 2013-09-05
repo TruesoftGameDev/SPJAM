@@ -112,7 +112,7 @@ public class MenuInicial : MonoBehaviour {
 					case Itens.Continuar:
 						if(PlayerPrefs.HasKey(nomeDaCena));
 						{
-							Application.LoadLevel(2);
+							Application.LoadLevel("Inicio");
 						}
 						break;
 					case Itens.Creditos:

@@ -7,7 +7,9 @@ public class Gameover : MonoBehaviour {
 	private float tp;
 	void Start () {
 		tp = tempo;
+		PlayerPrefs.DeleteAll();
 	}
+	
 	
 	// Update is called once per frame
 	void Update () {
