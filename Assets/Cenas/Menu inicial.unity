@@ -1026,7 +1026,7 @@ GameObject:
   - 23: {fileID: 2053200945}
   - 111: {fileID: 2053200949}
   m_Layer: 0
-  m_Name: Novo Jogo
+  m_Name: Creditos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

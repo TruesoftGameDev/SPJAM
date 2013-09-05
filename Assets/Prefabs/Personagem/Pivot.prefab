@@ -796,7 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeathSound: {fileID: 8200000, guid: 136927e3dd00fb84aa0745c13c09e70b, type: 2}
   orbs: 0
-  vidas: 0
+  vidas: 4
   continues: 0
   nivelAtual: 
   tempoDeMorte: 1.70000005

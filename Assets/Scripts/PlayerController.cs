@@ -53,77 +53,10 @@ public class PlayerController : MonoBehaviour {
 			switch(perspectiva)
 			{
 				case 1:
-					//Garante que sempre fique na posiçao 0 do eixo X;
-					transform.position = new Vector3(0,transform.position.y, transform.position.z);	
-					
-					if(characterController.isGrounded)
-					{
-						canJump = true;
-						doubleJump = false;
-						jumping = false;
-					
-						
-						;
-					
-						if(rasteira == true)
-						{
-							if(tmpRasteira >= 0)
-							{
-								tmpRasteira -= Time.deltaTime;
-							}
-							else
-							{
-								rasteira = false;
-								transform.position = new Vector3(transform.position.x, 2.5f,transform.position.z);
-								characterController.center = new Vector3(characterController.center.x, 0.08f, characterController.center.z);
-								animation.CrossFade("Run",1.5f);
-								characterController.height *=15;
-								
-							}
-						}
-						else
-							animation.Play("Run");
-						
-					
-						if(Input.GetKey(KeyCode.DownArrow)&& !rasteira)
-						{
-							rasteira = true;
-							characterController.height /=15;
-							characterController.center = new Vector3(characterController.center.x, 0.70f, characterController.center.z);
-							canJump = false;
-							animation.Play("Sliding",PlayMode.StopAll);
-						}
-						
-					}
-					if(Input.GetKeyDown(KeyCode.UpArrow) && (canJump))
-					{
-		                movimento.y = pulo;
-						if(jumping)
-						{
-							doubleJump = true;
-							canJump = false;
-							animation.Play("DoubleJump",PlayMode.StopAll);
-						}
-						else
-						{
-							jumping = true;
-							animation.Play("Jump",AnimationPlayMode.Mix);
-						}	
-					}
+					atualizaPerspectiva1(characterController);
 					break;
 				case 2:
-					if(!animation.isPlaying)
-						animation.Play("Run");
-					
-					if(Input.GetKey(KeyCode.LeftArrow))
-					{
-						movimento += Vector3.left*velocidadeLateral;
-					}
-					if(Input.GetKey(KeyCode.RightArrow))
-					{
-						movimento += Vector3.right*velocidadeLateral;
-					}
-					
+					atualizaPerspectiva2(characterController);
 					break;
 				
 				default:
@@ -148,6 +81,84 @@ public class PlayerController : MonoBehaviour {
 				break;
 			default:
 				break;
+		}
+	}
+	
+	private void atualizaPerspectiva1(CharacterController characterController)
+	{
+		//Garante que sempre fique na posiçao 0 do eixo X;
+		transform.position = new Vector3(0,transform.position.y, transform.position.z);	
+		
+		if(characterController.isGrounded)
+		{
+			canJump = true;
+			doubleJump = false;
+			jumping = false;
+		
+			
+			;
+		
+			if(rasteira == true)
+			{
+				if(tmpRasteira >= 0)
+				{
+					tmpRasteira -= Time.deltaTime;
+				}
+				else
+				{
+					rasteira = false;
+					transform.position = new Vector3(transform.position.x, 2.5f,transform.position.z);
+					characterController.center = new Vector3(characterController.center.x, 0.08f, characterController.center.z);
+					animation.CrossFade("Run",1.5f);
+					characterController.height *=15;
+					
+				}
+			}
+			else
+				animation.Play("Run");
+			
+		
+			if(Input.GetKey(KeyCode.DownArrow)&& !rasteira)
+			{
+				rasteira = true;
+				characterController.height /=15;
+				characterController.center = new Vector3(characterController.center.x, 0.70f, characterController.center.z);
+				canJump = false;
+				animation.Play("Sliding",PlayMode.StopAll);
+			}
+			
+		}
+		if(Input.GetKeyDown(KeyCode.UpArrow) && (canJump))
+		{
+            movimento.y = pulo;
+			if(jumping)
+			{
+				doubleJump = true;
+				canJump = false;
+				animation.Play("DoubleJump",PlayMode.StopAll);
+			}
+			else
+			{
+				jumping = true;
+				animation.Play("Jump",AnimationPlayMode.Mix);
+			}	
+		}
+	}
+	private void atualizaPerspectiva2(CharacterController characterController)
+	{
+		Renderer r = gameObject.GetComponentInChildren<Renderer>();
+		if(!animation.isPlaying)
+				animation.Play("Run");
+		
+		if(Input.GetKey(KeyCode.LeftArrow))
+		{
+			if(r.isVisible || transform.position.x<0)
+				movimento += Vector3.left*velocidadeLateral;
+		}
+		if(Input.GetKey(KeyCode.RightArrow))
+		{
+			if(r.isVisible || transform.position.x>0)
+				movimento += Vector3.right*velocidadeLateral;
 		}
 	}
 	
