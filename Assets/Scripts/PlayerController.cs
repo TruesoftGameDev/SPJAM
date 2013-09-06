@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject cameraSideRun;
 	public GameObject cameraTopRun;
 	
+	public AudioSource jumpSound;
+	
 	void Start () {
 		
 		animation["Run"].speed = 3.0f;
@@ -140,9 +142,11 @@ public class PlayerController : MonoBehaviour {
 				doubleJump = true;
 				canJump = false;
 				animation.Play("DoubleJump",PlayMode.StopAll);
+				Instantiate(jumpSound);
 			}
 			else
 			{
+				Instantiate(jumpSound);
 				jumping = true;
 				animation.Play("Jump",AnimationPlayMode.Mix);
 			}	
