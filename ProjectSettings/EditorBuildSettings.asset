@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Cenas/Continue.unity
   - enabled: 1
     path: Assets/Cenas/Gameover.unity
+  - enabled: 1
+    path: Assets/Cenas/Final.unity

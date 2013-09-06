@@ -57,14 +57,14 @@ public class AttributesController : MonoBehaviour {
 		
 		if(ch.gameObject.tag == "OrbVermelho")
 		{
-			orbs += 20;
+			orbs += 10;
 			Destroy(ch.gameObject);
 			Instantiate(OrbSound);
 			return;
 		}
 		if(ch.gameObject.tag == "OrbPreto")
 		{
-			orbs += 40;
+			orbs += 20;
 			Destroy(ch.gameObject);
 			Instantiate(OrbSound);
 			return;
@@ -81,7 +81,11 @@ public class AttributesController : MonoBehaviour {
 	void Dead()
 	{
 		if(vidas > 0)
+		{
+			PlayerPrefs.SetInt("Vidas", vidas);
+			PlayerPrefs.SetInt("Continues", continues);
 			Application.LoadLevel("Continue");
+		}
 		else
 			Application.LoadLevel(nivelAtual);
 	}

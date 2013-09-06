@@ -190,6 +190,9 @@ public class PlayerController : MonoBehaviour {
 				controller.gravaCheckpoint(ck.id);
 				colisor.collider.enabled = false;
 				break;
+			case "Portal":
+				Application.LoadLevel("Final");
+				break;
 		}
 	}
 	private void toSideCamera(){
