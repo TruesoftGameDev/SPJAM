@@ -87,6 +87,6 @@ public class AttributesController : MonoBehaviour {
 			Application.LoadLevel("Continue");
 		}
 		else
-			Application.LoadLevel(nivelAtual);
+			Application.LoadLevel("Gameover");
 	}
 }
