@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		//Delay do pulo
 		if(jumping)
-			delayJump -= Time.deltaTimse;
+			delayJump -= Time.deltaTime;
 		
 		//Se estiver no chao, passa para animaçao de corrida
 		if(characterController.isGrounded)
@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour {
 		//Gerencia controles de pulo
 		if((Input.GetKeyDown(KeyCode.UpArrow) || touching) && (canJump) )
 		{
-            
+            //Pulo duplo
 			if(jumping && (delayJump <= 0))
 			{
 				Debug.Log ('D');
@@ -189,6 +189,7 @@ public class PlayerController : MonoBehaviour {
 				touching = false;
 				movimento.y = pulo;
 			}
+			//Pulo
 			else if(!jumping)
 			{
 				Instantiate(jumpSound);
@@ -199,6 +200,7 @@ public class PlayerController : MonoBehaviour {
 			}	
 		}
 	}
+	
 	private void atualizaPerspectiva2(CharacterController characterController)
 	{
 		Renderer r = gameObject.GetComponentInChildren<Renderer>();
