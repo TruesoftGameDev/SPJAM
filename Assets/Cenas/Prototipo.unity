@@ -2458,7 +2458,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &633264864
 Transform:
@@ -2601,6 +2601,10 @@ Prefab:
       propertyPath: velocidadeLateral
       value: .300000012
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 41c7564de1d534d4d8febcbe289887ba, type: 2}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8200000, guid: 2e7a780e6d5ba3c4ba6357451b9fdaea, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41c7564de1d534d4d8febcbe289887ba, type: 2}
   m_RootGameObject: {fileID: 2078244791}
@@ -10392,7 +10396,7 @@ GameObject:
   m_TagString: DeathCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!95 &1741263096
 Animator:
@@ -13571,6 +13575,9 @@ MonoBehaviour:
   perspectiva: 1
   cameraSideRun: {fileID: 1558832157}
   cameraTopRun: {fileID: 1727922901}
+  jumpSound: {fileID: 8200000, guid: 2e7a780e6d5ba3c4ba6357451b9fdaea, type: 2}
+  touching: 0
+  delayJump: .300000012
 --- !u!114 &2078244795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13584,6 +13591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeathSound: {fileID: 8200000, guid: 136927e3dd00fb84aa0745c13c09e70b, type: 2}
+  OrbSound: {fileID: 8200000, guid: e63be9fa0f479d24284efc2011013f66, type: 2}
   orbs: 0
   vidas: 4
   continues: 0

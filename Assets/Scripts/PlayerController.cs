@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour {
 	
 	public AudioSource jumpSound;
 	
+	//Touch
+	public bool touching = false;
+	public float delayJump = 0.1f;
+	
 	void Start () {
 		
 		animation["Run"].speed = 3.0f;
@@ -89,13 +93,27 @@ public class PlayerController : MonoBehaviour {
 	private void atualizaPerspectiva1(CharacterController characterController)
 	{
 		//Garante que sempre fique na posiçao 0 do eixo X;
-		transform.position = new Vector3(0,transform.position.y, transform.position.z);	
+		transform.position = new Vector3(0,transform.position.y, transform.position.z);
+		//Touch
+		if(Input.touchCount > 0)
+		{
+			touching = true;	
+			
+		}
+		else
+		{
+			touching = false;	
+		}
+		
+		if(jumping)
+			delayJump -= Time.deltaTime;
 		
 		if(characterController.isGrounded)
 		{
 			canJump = true;
 			doubleJump = false;
 			jumping = false;
+			delayJump = 0.1f;
 			
 			animation.Play("Run");
 			
@@ -134,21 +152,26 @@ public class PlayerController : MonoBehaviour {
 		{
 			animation.Play("DoubleJump");
 		}
-		if(Input.GetKeyDown(KeyCode.UpArrow) && (canJump))
+		if((Input.GetKeyDown(KeyCode.UpArrow) || touching) && (canJump) )
 		{
-            movimento.y = pulo;
-			if(jumping)
+            
+			if(jumping && (delayJump <= 0))
 			{
+				Debug.Log ('D');
 				doubleJump = true;
 				canJump = false;
 				animation.Play("DoubleJump",PlayMode.StopAll);
 				Instantiate(jumpSound);
+				touching = false;
+				movimento.y = pulo;
 			}
-			else
+			else if(!jumping)
 			{
 				Instantiate(jumpSound);
 				jumping = true;
 				animation.Play("Jump",AnimationPlayMode.Mix);
+				Debug.Log ('S');
+				movimento.y = pulo;
 			}	
 		}
 	}
