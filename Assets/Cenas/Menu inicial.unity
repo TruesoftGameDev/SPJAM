@@ -152,9 +152,10 @@ GameObject:
   - 33: {fileID: 93853818}
   - 64: {fileID: 93853817}
   - 23: {fileID: 93853816}
+  - 114: {fileID: 93853820}
   m_Layer: 0
   m_Name: Novo Jogo
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,6 +209,21 @@ Transform:
   m_LocalScale: {x: 1.67999995, y: 1.50999999, z: .709999979}
   m_Children: []
   m_Father: {fileID: 1190724349}
+--- !u!114 &93853820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93853815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: TouchNovoJogo
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: GUIElement
 --- !u!1 &293768953
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,9 +297,10 @@ GameObject:
   - 33: {fileID: 365579005}
   - 64: {fileID: 365579004}
   - 23: {fileID: 365579003}
+  - 114: {fileID: 365579006}
   m_Layer: 0
   m_Name: Sim
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,6 +354,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 365579001}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &365579006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 365579001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: TouchSim
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: GUIElement
 --- !u!1 &469152987
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,9 +380,10 @@ GameObject:
   - 33: {fileID: 469152991}
   - 64: {fileID: 469152990}
   - 23: {fileID: 469152989}
+  - 114: {fileID: 469152992}
   m_Layer: 0
   m_Name: "N\xE3o"
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,6 +437,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 469152987}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &469152992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 469152987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: TouchNao
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: GUIElement
 --- !u!1 &470264958
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,9 +489,10 @@ GameObject:
   - 33: {fileID: 607798648}
   - 64: {fileID: 607798647}
   - 23: {fileID: 607798646}
+  - 114: {fileID: 607798649}
   m_Layer: 0
   m_Name: Sair
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,6 +546,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607798644}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &607798649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607798644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: TouchSair
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: GUIElement
 --- !u!1 &816701319
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,9 +623,10 @@ GameObject:
   - 33: {fileID: 1106715043}
   - 64: {fileID: 1106715042}
   - 23: {fileID: 1106715041}
+  - 114: {fileID: 1106715045}
   m_Layer: 0
   m_Name: "Cr\xE9ditos"
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,6 +680,21 @@ Transform:
   m_LocalScale: {x: 1.67999995, y: 1.50999999, z: .709999979}
   m_Children: []
   m_Father: {fileID: 1190724349}
+--- !u!114 &1106715045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106715040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: TouchCreditos
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: GUIElement
 --- !u!1 &1111671845
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,9 +845,10 @@ GameObject:
   - 33: {fileID: 1437403815}
   - 64: {fileID: 1437403814}
   - 23: {fileID: 1437403813}
+  - 114: {fileID: 1437403816}
   m_Layer: 0
   m_Name: Continuar
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -821,6 +902,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437403811}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1437403816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437403811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: TouchContinue
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: GUIElement
 --- !u!1 &1596526211
 GameObject:
   m_ObjectHideFlags: 0

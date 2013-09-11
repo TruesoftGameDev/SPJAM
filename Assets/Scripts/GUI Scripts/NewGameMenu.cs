@@ -20,6 +20,7 @@ public class NewGameMenu : MonoBehaviour {
 	private Material sim;
 	private Material nao;
 	
+	private bool tocou = false;
 	
 	void Start()
 	{
@@ -55,9 +56,9 @@ public class NewGameMenu : MonoBehaviour {
 					break;
 			}
 			
-			if(Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.Return) || tocou)
 			{
-				//Debug.Log("ta");
+				tocou = false;
 				switch(options)
 				{
 					case Options.Sim:
@@ -72,5 +73,16 @@ public class NewGameMenu : MonoBehaviour {
 				}
 			}
 		}
+	}
+	
+	public void TouchSim()
+	{
+		tocou = true;
+		options = Options.Sim;
+	}
+	public void TouchNao()
+	{
+		tocou = true;
+		options = Options.Nao;
 	}
 }

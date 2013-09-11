@@ -33,6 +33,8 @@ public class MenuInicial : MonoBehaviour {
 	private float delay = 1.0f;
 	private bool ativando = false;
 	
+	private bool tocou = false;
+	
 	public string nomeDaCena = "Inicio";
 	
 	void Start()
@@ -92,8 +94,10 @@ public class MenuInicial : MonoBehaviour {
 			}	
 		
 		
-			if(Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.Return) || tocou)
 			{
+				if(tocou)
+					tocou = false;
 				switch(itens)
 				{
 					case Itens.NovoJogo:
@@ -128,7 +132,7 @@ public class MenuInicial : MonoBehaviour {
 		}
 		if(credito)
 		{
-			if(Input.GetKeyDown(KeyCode.Escape))
+			if(Input.GetKeyDown(KeyCode.Escape) || Input.touchCount > 0)
 			{
 				ativa();
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
@@ -156,6 +160,27 @@ public class MenuInicial : MonoBehaviour {
 		{
 			ativando = true;	
 		}
+	}
+	
+	public void TouchContinue()
+	{
+		itens = Itens.Continuar;
+		tocou = true;
+	}
+	public void TouchNovoJogo()
+	{
+		itens = Itens.NovoJogo;
+		tocou = true;
+	}
+	public void TouchSair()
+	{
+		itens = Itens.Sair;	
+		tocou = true;
+	}
+	public void TouchCreditos()
+	{
+		itens = Itens.Creditos;
+		tocou = true;
 	}
 }
 
