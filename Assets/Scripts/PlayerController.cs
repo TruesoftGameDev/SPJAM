@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour {
 	
 	//Touch
 	private bool touching = false;
-	private float delayJump = 0.1f;
 	
 	void Start () {
 		
@@ -123,9 +122,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			touching = false;	
 		}
-		//Delay do pulo
-		if(jumping)
-			delayJump -= Time.deltaTime;
+		
 		
 		//Se estiver no chao, passa para animaçao de corrida
 		if(characterController.isGrounded)
@@ -133,7 +130,7 @@ public class PlayerController : MonoBehaviour {
 			canJump = true;
 			doubleJump = false;
 			jumping = false;
-			delayJump = 0.1f;
+			
 			
 			animation.Play("Run");
 			
@@ -176,10 +173,10 @@ public class PlayerController : MonoBehaviour {
 		}
 		
 		//Gerencia controles de pulo
-		if((Input.GetKeyDown(KeyCode.UpArrow) || touching) && (canJump) )
+		if((Input.GetKeyDown(KeyCode.UpArrow) || (touching && Input.GetTouch(0).phase == TouchPhase.Began)) && (canJump) )
 		{
             //Pulo duplo
-			if(jumping && (delayJump <= 0))
+			if(jumping)
 			{
 				Debug.Log ('D');
 				doubleJump = true;

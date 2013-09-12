@@ -87,6 +87,9 @@ public class AttributesController : MonoBehaviour {
 			Application.LoadLevel("Continue");
 		}
 		else
+		{
+			PlayerPrefs.DeleteAll();
 			Application.LoadLevel("Gameover");
+		}
 	}
 }
