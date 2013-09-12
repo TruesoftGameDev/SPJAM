@@ -32,6 +32,7 @@ public class MenuInicial : MonoBehaviour {
 	
 	private float delay = 1.0f;
 	private bool ativando = false;
+	private bool ativandoCreditos = false;
 	
 	private bool tocou = false;
 	
@@ -43,6 +44,28 @@ public class MenuInicial : MonoBehaviour {
 		continuar = cont.GetComponent<Renderer>().material;
 		creditos = credits.GetComponent<Renderer>().material;
 		sair = quit.GetComponent<Renderer>().material;
+	}
+	
+	public void TouchContinue()
+	{
+		itens = Itens.Continuar;
+		tocou = true;
+	}
+	public void TouchNovoJogo()
+	{
+		itens = Itens.NovoJogo;
+		tocou = true;
+	}
+	public void TouchSair()
+	{
+		itens = Itens.Sair;	
+		tocou = true;
+	}
+	public void TouchCreditos()
+	{
+		Debug.Log ("TouchCreditos");
+		itens = Itens.Creditos;
+		tocou = true;
 	}
 	
 	void Update () {
@@ -122,7 +145,7 @@ public class MenuInicial : MonoBehaviour {
 					case Itens.Creditos:
 						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toCreditos();
 						this.ativado = false;
-						this.credito = true;
+						ativaCredito();
 						break;
 					case Itens.Sair:
 						Application.Quit();
@@ -132,7 +155,7 @@ public class MenuInicial : MonoBehaviour {
 		}
 		if(credito)
 		{
-			if(Input.GetKeyDown(KeyCode.Escape) || Input.touchCount > 0)
+			if(Input.GetKeyDown(KeyCode.Escape) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
 			{
 				ativa();
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
@@ -152,6 +175,19 @@ public class MenuInicial : MonoBehaviour {
 				delay = 1;
 			}
 		}
+		if(ativandoCreditos)
+		{
+			if(delay > 0)
+			{
+				delay -= Time.deltaTime;	
+			}
+			else
+			{
+				credito = true;
+				ativandoCreditos = false;
+				delay = 1;
+			}
+		}
 	}
 	
 	public void ativa()
@@ -161,26 +197,15 @@ public class MenuInicial : MonoBehaviour {
 			ativando = true;	
 		}
 	}
+	public void ativaCredito()
+	{
+		
+		if(!credito)
+		{
+			ativandoCreditos = true;	
+		}
+	}
 	
-	public void TouchContinue()
-	{
-		itens = Itens.Continuar;
-		tocou = true;
-	}
-	public void TouchNovoJogo()
-	{
-		itens = Itens.NovoJogo;
-		tocou = true;
-	}
-	public void TouchSair()
-	{
-		itens = Itens.Sair;	
-		tocou = true;
-	}
-	public void TouchCreditos()
-	{
-		itens = Itens.Creditos;
-		tocou = true;
-	}
+
 }
 
