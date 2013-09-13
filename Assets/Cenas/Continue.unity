@@ -140,7 +140,9 @@ Transform:
   m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
   m_LocalPosition: {x: .0423566103, y: 1.39017665, z: -.255897164}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1377628782}
+  - {fileID: 422909523}
   m_Father: {fileID: 0}
 --- !u!114 &384830991
 MonoBehaviour:
@@ -173,9 +175,10 @@ GameObject:
   - 33: {fileID: 422909522}
   - 64: {fileID: 422909521}
   - 23: {fileID: 422909520}
+  - 114: {fileID: 422909524}
   m_Layer: 0
   m_Name: Sim
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,11 +227,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 422909519}
-  m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
-  m_LocalPosition: {x: -3.1500001, y: -2.1500001, z: -.487566352}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1923573, y: .231669918, z: 3.54017735}
   m_LocalScale: {x: .400000006, y: .25, z: .180000007}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 384830990}
+--- !u!114 &422909524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422909519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: touchSim
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: 
 --- !u!1 &1377628778
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,9 +258,10 @@ GameObject:
   - 33: {fileID: 1377628781}
   - 64: {fileID: 1377628780}
   - 23: {fileID: 1377628779}
+  - 114: {fileID: 1377628783}
   m_Layer: 0
   m_Name: "N\xE3o"
-  m_TagString: Untagged
+  m_TagString: GUIElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,11 +310,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377628778}
-  m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
-  m_LocalPosition: {x: 1.62585402, y: -2.1500001, z: -.487566411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.58349776, y: .23166956, z: 3.54017735}
   m_LocalScale: {x: .400000006, y: .25, z: .180000007}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 384830990}
+--- !u!114 &1377628783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1377628778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba87e60bf360647afd6914c2447397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mensagemToque: touchNao
+  mensagemMovendo: 
+  mensagemFimToque: 
+  tagDoAlvo: 
 --- !u!1 &1953204907
 GameObject:
   m_ObjectHideFlags: 0

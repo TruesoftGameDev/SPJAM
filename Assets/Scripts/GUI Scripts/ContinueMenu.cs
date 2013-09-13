@@ -14,6 +14,9 @@ public class ContinueMenu : MonoBehaviour {
 	
 	private Material sim;
 	private Material nao;
+	
+	private bool touch;
+	
 	void Start()
 	{
 		sim = yes.renderer.material;
@@ -47,7 +50,7 @@ public class ContinueMenu : MonoBehaviour {
 				break;
 		}
 		
-		if(Input.GetKeyDown(KeyCode.Return))
+		if(Input.GetKeyDown(KeyCode.Return) || touch)
 		{
 			switch(options)
 		{
@@ -59,5 +62,16 @@ public class ContinueMenu : MonoBehaviour {
 				break;
 		}
 		}
+	}
+	
+	public void touchSim()
+	{
+		options = Options.Sim;
+		touch = true;
+	}
+	public void touchNao()
+	{
+		options = Options.Nao;
+		touch = true;
 	}
 }

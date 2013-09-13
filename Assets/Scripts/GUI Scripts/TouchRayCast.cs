@@ -18,7 +18,7 @@ public class TouchRayCast : MonoBehaviour {
 				RaycastHit hit = new RaycastHit();
 				if(Physics.Raycast(ray,out hit))
 				{
-					if(hit.collider.tag == tagDoAlvo)
+					if(hit.collider.gameObject == gameObject)
 					{
 						switch(a.phase)
 						{

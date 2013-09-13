@@ -22,6 +22,7 @@ public class PauseMenu : MonoBehaviour {
 	public Texture2D[] selecionado;
 	
 	public PauseOptions opt = PauseOptions.voltar;
+	public bool tocou = false;
 	
 	
 	void Start () {
@@ -36,6 +37,30 @@ public class PauseMenu : MonoBehaviour {
 		
 		if(controller.pause)
 		{
+			//Testa touch
+			if(Input.touchCount > 0)
+			{
+				Touch toque = Input.GetTouch(0);
+				if(toque.phase == TouchPhase.Began)
+				{
+					if(voltar.HitTest(toque.position,Camera.main))
+					{
+						opt = PauseOptions.voltar;
+						tocou = true;
+					}
+					else if(menu.HitTest(toque.position, Camera.main))
+					{
+						opt = PauseOptions.menu;
+						tocou = true;
+					}
+					else if(sair.HitTest(toque.position, Camera.main))
+					{
+						opt = PauseOptions.sair;
+						tocou = true;
+					}
+				}
+			}
+				
 			if(Input.GetKeyDown(KeyCode.Escape))
 			{
 				controller.pause = false;
@@ -79,8 +104,9 @@ public class PauseMenu : MonoBehaviour {
 					break;
 					
 			}
-			if(Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.Return) || tocou)
 			{
+				tocou = false;
 				switch(opt)
 				{
 					case PauseOptions.voltar:
