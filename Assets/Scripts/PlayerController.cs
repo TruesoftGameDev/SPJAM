@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour {
 	//Touch
 	private bool touching = false;
 	
+	//Acelerometro
+	public float sensibilidadeAcelerometro = 0.1f;
+	
 	void Start () {
 		
 		//Define velocidade de animaçao
@@ -213,11 +216,20 @@ public class PlayerController : MonoBehaviour {
 		
 		Debug.Log(r.transform.position.x);
 		
-		if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -11)
+		//Acelerometro
+		float inclinacao = Input.acceleration.x;
+		float direcao = 0.0f;
+		if(Mathf.Abs(inclinacao) >sensibilidadeAcelerometro)
+		{
+			direcao = Mathf.Sign(inclinacao);
+		}
+		
+		
+		if((Input.GetKey(KeyCode.LeftArrow) || direcao<0) && transform.position.x > -11)
 		{
 			movimento += Vector3.left*velocidadeLateral;
 		}
-		if(Input.GetKey(KeyCode.RightArrow) && transform.position.x < 11)
+		if((Input.GetKey(KeyCode.RightArrow)|| direcao>0) && transform.position.x < 11)
 		{
 			movimento += Vector3.right*velocidadeLateral;
 		}
