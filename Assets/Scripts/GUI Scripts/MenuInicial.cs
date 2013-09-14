@@ -50,22 +50,25 @@ public class MenuInicial : MonoBehaviour {
 	{
 		itens = Itens.Continuar;
 		tocou = true;
+		mudou = true;
 	}
 	public void TouchNovoJogo()
 	{
 		itens = Itens.NovoJogo;
 		tocou = true;
+		mudou = true;
 	}
 	public void TouchSair()
 	{
 		itens = Itens.Sair;	
 		tocou = true;
+		mudou = true;
 	}
 	public void TouchCreditos()
 	{
-		Debug.Log ("TouchCreditos");
 		itens = Itens.Creditos;
 		tocou = true;
+		mudou = true;
 	}
 	
 	void Update () {

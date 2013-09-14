@@ -63,8 +63,9 @@ public class PlayerController : MonoBehaviour {
 	
 	void Update () {
 		
+		bool voltouPausa = GameObject.FindGameObjectWithTag("PauseController").GetComponent<PauseMenu>().checarPausa();
 		//Gerencia movimentaçao
-		if(!pause){		
+		if(!pause && !voltouPausa){		
 			CharacterController characterController = GetComponent<CharacterController>();
 			//Movimenta o personagem para frente
 			movimento = Vector3.forward;

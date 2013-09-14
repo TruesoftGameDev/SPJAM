@@ -6,6 +6,6 @@ MonoImporter:
   - cameraSideRun: {instanceID: 0}
   - cameraTopRun: {instanceID: 0}
   - jumpSound: {fileID: 8200000, guid: 2e7a780e6d5ba3c4ba6357451b9fdaea, type: 2}
-  executionOrder: 0
+  executionOrder: 200
   icon: {instanceID: 0}
   userData: 

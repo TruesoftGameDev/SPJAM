@@ -12,6 +12,7 @@ public enum PauseOptions
 public class PauseMenu : MonoBehaviour {
 
 	PlayerController controller;
+	public GUITexture pauseButton;
 	
 	public GUITexture voltar;
 	public GUITexture sair;
@@ -33,7 +34,7 @@ public class PauseMenu : MonoBehaviour {
 		pauseTop.enabled = false;
 	}
 	
-	void Update () {
+	public bool checarPausa () {
 		
 		if(controller.pause)
 		{
@@ -61,22 +62,17 @@ public class PauseMenu : MonoBehaviour {
 				}
 			}
 				
-			if(Input.GetKeyDown(KeyCode.Escape))
+			else if(Input.GetKeyDown(KeyCode.Escape))
 			{
-				controller.pause = false;
-				Time.timeScale = 1.0f;
-				voltar.enabled = false;
-				menu.enabled = false;
-				sair.enabled = false;
-				pauseTop.enabled = false;
+				despausa();
 			}
-			if(Input.GetKeyDown(KeyCode.UpArrow))
+			else if(Input.GetKeyDown(KeyCode.UpArrow))
 			{
 				opt--;
 				if((int)opt <0)
 					opt = PauseOptions.sair;
 			}
-			if(Input.GetKeyDown(KeyCode.DownArrow))
+			else if(Input.GetKeyDown(KeyCode.DownArrow))
 			{
 				opt++;
 				if((int)opt>2)
@@ -84,7 +80,6 @@ public class PauseMenu : MonoBehaviour {
 			}
 			
 			
-			Debug.Log ((int)opt);
 			switch(opt)
 			{
 				case PauseOptions.voltar:
@@ -110,20 +105,11 @@ public class PauseMenu : MonoBehaviour {
 				switch(opt)
 				{
 					case PauseOptions.voltar:
-						controller.pause = false;
-						Time.timeScale = 1.0f;
-						voltar.enabled = false;
-						menu.enabled = false;
-						sair.enabled = false;
-						pauseTop.enabled = false;
+						despausa();
+						return true;
 						break;
 					case PauseOptions.menu:
-						controller.pause = false;
-						Time.timeScale = 1.0f;
-						voltar.enabled = false;
-						menu.enabled = false;
-						sair.enabled = false;
-						pauseTop.enabled = false;
+						despausa();
 						GameObject.FindGameObjectWithTag("Player").GetComponent<AttributesController>().vidas++;
 						Application.LoadLevel("Menu inicial");
 						break;
@@ -142,14 +128,41 @@ public class PauseMenu : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.Escape))
 			{
-				controller.pause = true;
-				Time.timeScale = 0.0f;
-				voltar.enabled = true;
-				menu.enabled = true;
-				sair.enabled = true;
-				pauseTop.enabled = true;
+				pausa ();
 			}
+			else if(Input.touchCount > 0)
+			{
+				if(Input.GetTouch(0).phase == TouchPhase.Began)
+				{
+					if(pauseButton.HitTest(Input.GetTouch(0).position, Camera.main))
+					{
+						pausa();	
+					}
+				}
+			}
+			
 		}
+		return false;
 	
+	}
+	public void pausa()
+	{
+		controller.pause = true;
+		Time.timeScale = 0.0f;
+		voltar.enabled = true;
+		menu.enabled = true;
+		sair.enabled = true;
+		pauseTop.enabled = true;
+		pauseButton.enabled = false;
+	}
+	public void despausa()
+	{
+		controller.pause = false;
+		Time.timeScale = 1.0f;
+		voltar.enabled = false;
+		menu.enabled = false;
+		sair.enabled = false;
+		pauseTop.enabled = false;
+		pauseButton.enabled = true;
 	}
 }
