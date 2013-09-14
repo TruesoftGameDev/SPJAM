@@ -254,9 +254,9 @@ public class PlayerController : MonoBehaviour {
 				colisor.collider.enabled = false;
 				break;
 			case "Checkpoint":
-				Checkpoint ck = colisor.gameObject.GetComponent<Checkpoint>();
+				/*Checkpoint ck = colisor.gameObject.GetComponent<Checkpoint>();
 				Checkpoints controller = GameObject.FindGameObjectWithTag("CheckpointController").GetComponent<Checkpoints>();
-				controller.gravaCheckpoint(ck.id);
+				controller.gravaCheckpoint(ck.id);*/
 				colisor.collider.enabled = false;
 				break;
 			case "Portal":
