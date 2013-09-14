@@ -21,7 +21,7 @@ public class Checkpoints : MonoBehaviour {
 			controller.continues = PlayerPrefs.GetInt("Continues");
 			controller.vidas--;
 		}	
-		if(controller.vidas <=0)
+		if(controller.vidas <0)
 		{
 			Application.LoadLevel("Gameover");
 		}

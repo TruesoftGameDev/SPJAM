@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 		//Define velocidade de animaçao
 		animation["Run"].speed = 3.0f;
 		animation["Sliding"].speed = 3.0f;
+		animation["Jump"].speed = 1.5f;
+		animation["DoubleJump"].speed = 1.5f;
 		
 		//Atualiza perspectiva
 		switch(perspectiva){
