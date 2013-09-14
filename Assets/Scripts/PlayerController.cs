@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public bool jumping = false;
 	public bool doubleJump = false;
 	public float pulo = 8.0f;
+	private float forcaPulo;
 	//Gravidade
 	public float gravidade = 20.0f;
 	
@@ -185,7 +186,7 @@ public class PlayerController : MonoBehaviour {
 				animation.Play("DoubleJump",PlayMode.StopAll);
 				Instantiate(jumpSound);
 				touching = false;
-				movimento.y = pulo;
+				forcaPulo = pulo;
 			}
 			//Pulo
 			else if(!jumping)
@@ -194,8 +195,13 @@ public class PlayerController : MonoBehaviour {
 				jumping = true;
 				animation.Play("Jump",AnimationPlayMode.Mix);
 				Debug.Log ('S');
-				movimento.y = pulo;
+				forcaPulo = pulo;
 			}	
+		}
+		if(jumping && forcaPulo > 0)
+		{
+			movimento.y+=forcaPulo*Time.deltaTime;
+			forcaPulo -= forcaPulo*Time.deltaTime;
 		}
 	}
 	

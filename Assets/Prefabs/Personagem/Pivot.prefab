@@ -632,7 +632,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100040}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 15.300827, y: .719202995, z: 2.67243958}
+  m_LocalPosition: {x: 21.3993988, y: .719202995, z: 7.00891113}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 400048}
@@ -769,20 +769,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d1d5d223ce6b74091c0d07d4a6d62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: .400000006
+  velocidade: .300000012
+  velocidadeLateral: .300000012
   canJump: 1
   jumping: 0
   doubleJump: 0
-  pulo: 3
-  gravidade: 5
-  velocidadeLateral: .5
-  rasteira: 0
-  tempoRasteira: 1
-  tmpRasteira: 0
+  pulo: 20
+  gravidade: 11
   pause: 0
   perspectiva: 1
   cameraSideRun: {fileID: 100040}
   cameraTopRun: {fileID: 0}
+  jumpSound: {fileID: 8200000, guid: 2e7a780e6d5ba3c4ba6357451b9fdaea, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
