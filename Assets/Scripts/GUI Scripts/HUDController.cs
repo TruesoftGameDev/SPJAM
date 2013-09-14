@@ -5,7 +5,6 @@ public class HUDController : MonoBehaviour {
 
 	AttributesController controller;
 	public GUIText OrbGUIText;
-	public GUIText LifeGUIText;
 	
 	void Start()
 	{
@@ -16,6 +15,5 @@ public class HUDController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		OrbGUIText.text = controller.orbs.ToString();
-		LifeGUIText.text = controller.vidas.ToString();
 	}
 }

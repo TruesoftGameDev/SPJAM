@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour {
             //Pulo duplo
 			if(jumping)
 			{
-				Debug.Log ('D');
+				//Debug.Log ('D');
 				doubleJump = true;
 				canJump = false;
 				animation.Play("DoubleJump",PlayMode.StopAll);
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour {
 				Instantiate(jumpSound);
 				jumping = true;
 				animation.Play("Jump",AnimationPlayMode.Mix);
-				Debug.Log ('S');
+				//Debug.Log ('S');
 				forcaPulo = pulo;
 			}	
 		}
@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour {
 		if(!animation.isPlaying)
 				animation.Play("Run");
 		
-		Debug.Log(r.transform.position.x);
+		//Debug.Log(r.transform.position.x);
 		
 		//Acelerometro
 		float inclinacao = Input.acceleration.x;
@@ -262,6 +262,7 @@ public class PlayerController : MonoBehaviour {
 				colisor.collider.enabled = false;
 				break;
 			case "Portal":
+				SendMessage("GravaOrbs",SendMessageOptions.RequireReceiver);
 				Application.LoadLevel("Final");
 				break;
 		}

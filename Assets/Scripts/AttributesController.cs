@@ -10,8 +10,6 @@ public class AttributesController : MonoBehaviour {
 	
 	
 	public int orbs;
-	public int vidas;
-	public int continues;
 	
 	public string nivelAtual;
 	
@@ -27,11 +25,6 @@ public class AttributesController : MonoBehaviour {
 	}
 	void Update()
 	{
-		if(orbs >= 100)
-		{
-			orbs-=100;
-			vidas++;
-		}
 		
 		if(deadCollide )
 		{
@@ -80,16 +73,12 @@ public class AttributesController : MonoBehaviour {
 	
 	void Dead()
 	{
-		if(vidas > 0)
-		{
-			PlayerPrefs.SetInt("Vidas", vidas);
-			PlayerPrefs.SetInt("Continues", continues);
-			Application.LoadLevel("Continue");
-		}
-		else
-		{
-			PlayerPrefs.DeleteAll();
-			Application.LoadLevel("Gameover");
-		}
+		Application.LoadLevel("Continue");
+	}
+	
+	void GravaOrbs()
+	{
+		PlayerPrefs.SetInt(PlayerPrefs.GetString("Nivel Atual")+"OrbsTemp",orbs);
+		Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString("Nivel Atual")+"OrbsTemp"));
 	}
 }
