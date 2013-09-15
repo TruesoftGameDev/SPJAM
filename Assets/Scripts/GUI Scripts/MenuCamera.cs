@@ -15,6 +15,10 @@ public class MenuCamera : MonoBehaviour {
 
 	void Start()
 	{
+		if(PlayerPrefs.GetString("MenuStatus")=="Levels")
+			target = novoJogo;
+		else
+			target = menuInicial;
 		transform.position = new Vector3(target.position.x,transform.position.y,transform.position.z);
 	}
 	

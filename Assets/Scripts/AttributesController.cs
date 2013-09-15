@@ -79,6 +79,6 @@ public class AttributesController : MonoBehaviour {
 	void GravaOrbs()
 	{
 		PlayerPrefs.SetInt(PlayerPrefs.GetString("Nivel Atual")+"OrbsTemp",orbs);
-		Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString("Nivel Atual")+"OrbsTemp"));
+		//Debug.Log(PlayerPrefs.GetInt(PlayerPrefs.GetString("Nivel Atual")+"OrbsTemp"));
 	}
 }

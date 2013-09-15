@@ -8,7 +8,7 @@ public class Checkpoints : MonoBehaviour {
 	
 	void Start () {
 		
-		PlayerPrefs.SetString("Tela Atual",Application.loadedLevelName);
+		PlayerPrefs.SetString("Nivel Atual",Application.loadedLevelName);
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		
 		PlayerController playerController = player.GetComponent<PlayerController>();

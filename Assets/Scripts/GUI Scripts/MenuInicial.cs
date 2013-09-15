@@ -5,7 +5,6 @@ using System.Collections;
 public enum Itens
 {
 	NovoJogo,
-	Continuar,
 	Creditos,
 	Sair
 }
@@ -16,7 +15,6 @@ public class MenuInicial : MonoBehaviour {
 	public bool credito = false;
 	
 	public GameObject newGame;
-	public GameObject cont;
 	public GameObject credits;
 	public GameObject quit;
 	public Texture2D[] padrao;
@@ -26,7 +24,6 @@ public class MenuInicial : MonoBehaviour {
 	public Itens itens = Itens.NovoJogo;
 	
 	private Material novoJogo;
-	private Material continuar;
 	private Material creditos;
 	private Material sair;
 	
@@ -36,22 +33,23 @@ public class MenuInicial : MonoBehaviour {
 	
 	private bool tocou = false;
 	
-	public string nomeDaCena = "Inicio";
 	
 	void Start()
 	{
+		if(PlayerPrefs.GetString("MenuStatus")=="Levels")
+		{
+			//Debug.Log ("AQUI");
+			ativado=false;
+			GameObject.FindGameObjectWithTag("MenuTelas").GetComponent<TecladoTelas>().ativado = true;
+			PlayerPrefs.SetString("MenuStatus","Normal");
+		}
+		
 		novoJogo = newGame.GetComponent<Renderer>().material;
-		continuar = cont.GetComponent<Renderer>().material;
 		creditos = credits.GetComponent<Renderer>().material;
 		sair = quit.GetComponent<Renderer>().material;
 	}
 	
-	public void TouchContinue()
-	{
-		itens = Itens.Continuar;
-		tocou = true;
-		mudou = true;
-	}
+	
 	public void TouchNovoJogo()
 	{
 		itens = Itens.NovoJogo;
@@ -87,31 +85,23 @@ public class MenuInicial : MonoBehaviour {
 			if(mudou){
 				if((int)itens<0)
 					itens = Itens.Sair;
-				if((int)itens>3)
+				if((int)itens>2)
 					itens= Itens.NovoJogo;
 				switch(itens)
 				{
 					case Itens.NovoJogo:
 						novoJogo.mainTexture = selecionados[0];
-						continuar.mainTexture = padrao[1];
 						creditos.mainTexture = padrao[2];
 						sair.mainTexture = padrao[3];
 						break;
-					case Itens.Continuar:
-						novoJogo.mainTexture = padrao[0];
-						continuar.mainTexture = selecionados[1];
-						creditos.mainTexture = padrao[2];
-						sair.mainTexture = padrao[3];
-						break;
+					
 					case Itens.Creditos:
 						novoJogo.mainTexture = padrao[0];
-						continuar.mainTexture = padrao[1];
 						creditos.mainTexture = selecionados[2];
 						sair.mainTexture = padrao[3];
 						break;
 					case Itens.Sair:
 						novoJogo.mainTexture = padrao[0];
-						continuar.mainTexture = padrao[1];
 						creditos.mainTexture = padrao[2];
 						sair.mainTexture = selecionados[3];
 						break;			
@@ -127,23 +117,10 @@ public class MenuInicial : MonoBehaviour {
 				switch(itens)
 				{
 					case Itens.NovoJogo:
-						if(PlayerPrefs.HasKey("Checkpoint"))
-						{
-							Debug.Log ("camera");
-							GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toNovoJogo();
-							this.ativado = false;
-							GameObject.FindGameObjectWithTag("NovoJogo").GetComponent<NewGameMenu>().ativado = true;
-						}
-						else
-						{
-							Application.LoadLevel(nomeDaCena);
-						}
-						break;
-					case Itens.Continuar:
-						if(PlayerPrefs.HasKey(nomeDaCena));
-						{
-							Application.LoadLevel("Inicio");
-						}
+						Debug.Log ("camera");
+						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toNovoJogo();
+						GameObject.FindGameObjectWithTag("MenuTelas").GetComponent<TecladoTelas>().ativar();
+						this.ativado = false;
 						break;
 					case Itens.Creditos:
 						GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toCreditos();

@@ -58,6 +58,7 @@ public class ContinueMenu : MonoBehaviour {
 				Application.LoadLevel(PlayerPrefs.GetString("Tela Atual"));
 				break;
 			case Options.Nao:
+				PlayerPrefs.SetString("MenuStatus","Levels");
 				Application.LoadLevel("Menu inicial");
 				break;
 		}

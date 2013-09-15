@@ -23,9 +23,9 @@ public class FimDeTela : MonoBehaviour {
 		
 		
 		string tela = PlayerPrefs.GetString("Nivel Atual");
-		Debug.Log(tela);
+		//Debug.Log(tela);
 		int valPontuacao = PlayerPrefs.GetInt(tela+"OrbsTemp");
-		Debug.Log (valPontuacao);
+		//Debug.Log (valPontuacao);
 		int valRecorde = PlayerPrefs.GetInt(tela+"Recorde",0);
 		if(!PlayerPrefs.HasKey(tela+"Recorde") || valPontuacao>valRecorde)
 		{
@@ -40,6 +40,12 @@ public class FimDeTela : MonoBehaviour {
 			Pontuacao.text = valPontuacao.ToString();
 			RecordeAtualText.text = valRecorde.ToString();
 		}
+		
+		PlayerPrefs.SetString(tela+"Status","Completa");
+		
+		PlayerPrefs.SetString("MenuStatus","Levels");
+		//Debug.Log (PlayerPrefs.GetString(tela+"Status"));
+		//Debug.Log(tela+"Status");
 	}
 	
 	

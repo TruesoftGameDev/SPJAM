@@ -13,7 +13,7 @@ TagManager:
   - GameplaySound
   - MenuInicial
   - Creditos
-  - NovoJogo
+  - MenuTelas
   - Portal
   - GUIElement
   - PauseController
