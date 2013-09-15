@@ -110,11 +110,9 @@ public class PauseMenu : MonoBehaviour {
 						break;
 					case PauseOptions.menu:
 						despausa();
-						GameObject.FindGameObjectWithTag("Player").GetComponent<AttributesController>().vidas++;
 						Application.LoadLevel("Menu inicial");
 						break;
 					case PauseOptions.sair:
-						GameObject.FindGameObjectWithTag("Player").GetComponent<AttributesController>().vidas++;
 						Application.Quit();
 						break;
 						
