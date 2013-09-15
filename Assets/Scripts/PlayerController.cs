@@ -182,6 +182,7 @@ public class PlayerController : MonoBehaviour {
 		//Gerencia controles de pulo
 		if((Input.GetKeyDown(KeyCode.UpArrow) || (touching && Input.GetTouch(0).phase == TouchPhase.Began)) && (canJump) )
 		{
+			movimento.y = pulo;
             //Pulo duplo
 			if(jumping)
 			{
@@ -192,7 +193,7 @@ public class PlayerController : MonoBehaviour {
 				Instantiate(jumpSound);
 				touching = false;
 				//forcaPulo = pulo;
-				movimento.y = pulo;
+				
 			}
 			//Pulo
 			else if(!jumping)
@@ -200,7 +201,7 @@ public class PlayerController : MonoBehaviour {
 				Instantiate(jumpSound);
 				jumping = true;
 				animation.Play("Jump",AnimationPlayMode.Mix);
-				movimento.y = pulo;
+				
 				//Debug.Log ('S');
 				//forcaPulo = pulo;
 			}	
