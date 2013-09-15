@@ -56,6 +56,7 @@ public class FimDeTela : MonoBehaviour {
 		{
 			Application.LoadLevel("Menu inicial");	
 		}
-		
+		if(Input.GetKeyDown(KeyCode.Delete))
+			PlayerPrefs.DeleteAll();
 	}
 }

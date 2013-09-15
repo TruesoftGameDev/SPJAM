@@ -191,7 +191,8 @@ public class PlayerController : MonoBehaviour {
 				animation.Play("DoubleJump",PlayMode.StopAll);
 				Instantiate(jumpSound);
 				touching = false;
-				forcaPulo = pulo;
+				//forcaPulo = pulo;
+				movimento.y = pulo;
 			}
 			//Pulo
 			else if(!jumping)
@@ -199,15 +200,16 @@ public class PlayerController : MonoBehaviour {
 				Instantiate(jumpSound);
 				jumping = true;
 				animation.Play("Jump",AnimationPlayMode.Mix);
+				movimento.y = pulo;
 				//Debug.Log ('S');
-				forcaPulo = pulo;
+				//forcaPulo = pulo;
 			}	
 		}
-		if(jumping && forcaPulo > 0)
+		/*if(jumping && forcaPulo > 0)
 		{
-			movimento.y+=forcaPulo*Time.deltaTime*2;
+			movimento.y+=forcaPulo*Time.deltaTime*3;
 			forcaPulo -= forcaPulo*Time.deltaTime*2;
-		}
+		}*/
 	}
 	
 	private void atualizaPerspectiva2(CharacterController characterController)

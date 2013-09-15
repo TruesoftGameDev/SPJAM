@@ -774,8 +774,8 @@ MonoBehaviour:
   canJump: 1
   jumping: 0
   doubleJump: 0
-  pulo: 20
-  gravidade: 11
+  pulo: 3
+  gravidade: 2
   pause: 0
   perspectiva: 1
   cameraSideRun: {fileID: 100040}
