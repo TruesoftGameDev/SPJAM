@@ -55,7 +55,7 @@ public class ContinueMenu : MonoBehaviour {
 			switch(options)
 		{
 			case Options.Sim:
-				Application.LoadLevel(PlayerPrefs.GetString("Tela Atual"));
+				Application.LoadLevel(PlayerPrefs.GetString("Nivel Atual"));
 				break;
 			case Options.Nao:
 				PlayerPrefs.SetString("MenuStatus","Levels");

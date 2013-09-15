@@ -34,12 +34,13 @@ public class TouchRayCast : MonoBehaviour {
 					}
 					
 				}
-				else
-				{
-					transform.parent.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);
-					gameObject.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);	
-				}
+				
 			}
+		}
+		else
+		{
+			transform.parent.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);
+			gameObject.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);	
 		}
 	}
 }
