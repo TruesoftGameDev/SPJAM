@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7d645b096def44fa2bfa811fefd72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempo: 15
+  tempo: 3
   isRecord: 0
   RecordeObj: {fileID: 428503427}
   RecordeAtualTextObj: {fileID: 1776548257}
@@ -308,6 +308,10 @@ Prefab:
     - target: {fileID: 100004, guid: b9a9552a650a80549b577f6d0983b70d, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b9a9552a650a80549b577f6d0983b70d, type: 2}
+      propertyPath: tempo
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9a9552a650a80549b577f6d0983b70d, type: 2}

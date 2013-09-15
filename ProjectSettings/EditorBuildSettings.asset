@@ -11,12 +11,14 @@ EditorBuildSettings:
     path: Assets/Cenas/Menu inicial.unity
   - enabled: 1
     path: Assets/Cenas/Apagar save.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Cenas/Prototipo.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Cenas/Fase01/Inicio.unity
   - enabled: 1
     path: Assets/Cenas/Fases Mobile/Fase 1.unity
+  - enabled: 1
+    path: Assets/Cenas/Fases Mobile/Fase 2.unity
   - enabled: 1
     path: Assets/Cenas/Continue.unity
   - enabled: 1
