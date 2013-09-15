@@ -781,6 +781,7 @@ MonoBehaviour:
   cameraSideRun: {fileID: 100040}
   cameraTopRun: {fileID: 0}
   jumpSound: {fileID: 8200000, guid: 2e7a780e6d5ba3c4ba6357451b9fdaea, type: 2}
+  sensibilidadeAcelerometro: .100000001
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -795,8 +796,6 @@ MonoBehaviour:
   DeathSound: {fileID: 8200000, guid: 136927e3dd00fb84aa0745c13c09e70b, type: 2}
   OrbSound: {fileID: 8200000, guid: e63be9fa0f479d24284efc2011013f66, type: 2}
   orbs: 0
-  vidas: 4
-  continues: 0
   nivelAtual: 
   tempoDeMorte: 1.70000005
 --- !u!124 &12400000

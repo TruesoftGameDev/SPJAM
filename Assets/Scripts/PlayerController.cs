@@ -205,8 +205,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(jumping && forcaPulo > 0)
 		{
-			movimento.y+=forcaPulo*Time.deltaTime;
-			forcaPulo -= forcaPulo*Time.deltaTime;
+			movimento.y+=forcaPulo*Time.deltaTime*2;
+			forcaPulo -= forcaPulo*Time.deltaTime*2;
 		}
 	}
 	
