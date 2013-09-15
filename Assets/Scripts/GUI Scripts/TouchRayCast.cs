@@ -30,13 +30,15 @@ public class TouchRayCast : MonoBehaviour {
 								transform.parent.SendMessage(mensagemMovendo,SendMessageOptions.DontRequireReceiver);
 								gameObject.SendMessage(mensagemMovendo,SendMessageOptions.DontRequireReceiver);
 								break;
-							case TouchPhase.Canceled:
-								transform.parent.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);
-								gameObject.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);
-								break;
 						}
 					}
-				}	
+					
+				}
+				else
+				{
+					transform.parent.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);
+					gameObject.SendMessage(mensagemFimToque,SendMessageOptions.DontRequireReceiver);	
+				}
 			}
 		}
 	}

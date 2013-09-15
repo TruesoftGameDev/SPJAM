@@ -8,6 +8,7 @@ public class TecladoTelas : MonoBehaviour {
 	public bool ativado = false;
 	bool ativando = false;
 	private float delay = 1.0f;
+	private bool voltando = false;
 	
 	void Start () {
 	
@@ -31,10 +32,12 @@ public class TecladoTelas : MonoBehaviour {
 			}
 			if(Input.GetKeyDown(KeyCode.Return))
 				telas[selecionado].SendMessage("touch");
-			if(Input.GetKeyDown(KeyCode.Escape))
+				
+			if(Input.GetKeyDown(KeyCode.Escape) || voltando)
 			{
 				GameObject.FindGameObjectWithTag("MenuInicial").GetComponent<MenuInicial>().ativa();
 				GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MenuCamera>().toMenu();
+				voltando = false;
 				ativado = false;
 				
 			}
@@ -61,5 +64,9 @@ public class TecladoTelas : MonoBehaviour {
 	public void ativar()
 	{
 		ativando = true;
+	}
+	public void voltar()
+	{
+		voltando = true;
 	}
 }
