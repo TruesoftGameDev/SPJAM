@@ -107,7 +107,6 @@ public class PauseMenu : MonoBehaviour {
 					case PauseOptions.voltar:
 						despausa();
 						return true;
-						break;
 					case PauseOptions.menu:
 						despausa();
 						Application.LoadLevel("Menu inicial");
