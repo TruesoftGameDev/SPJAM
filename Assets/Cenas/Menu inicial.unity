@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c2478bd1eccb843a9c43d68cef5d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaTela: Cena01
+  nomeDaTela: Fase 3
   NumOrbs: {fileID: 132073058}
   Orb: {fileID: 534270166}
   normal: {fileID: 2800000, guid: 34620f78e2844b746be7a12e85d7a2e3, type: 3}
@@ -1000,7 +1000,7 @@ Prefab:
       objectReference: {fileID: 2800000, guid: 4736673b69bc9894fb58014295fda432, type: 3}
     - target: {fileID: 11400002, guid: a712f0d4fe54f3544b0bfe1da9353355, type: 2}
       propertyPath: nomeDaTela
-      value: Cena01
+      value: Fase 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a712f0d4fe54f3544b0bfe1da9353355, type: 2}
